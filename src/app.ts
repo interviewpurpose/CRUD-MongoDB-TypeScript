@@ -7,7 +7,7 @@ const app: Application = express();
 
 
 // database
-db.connect("mongodb://localhost:27017/bookShelf");
+db.connect(`${process.env.MONGO_URI}`);
 
 app.use(express.json());
 app.use('/api/books', BookRouter);

@@ -9,7 +9,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const bookRoute_1 = __importDefault(require("./route/bookRoute"));
 const app = (0, express_1.default)();
 // database
-mongoose_1.default.connect("mongodb://localhost:27017/bookShelf");
+mongoose_1.default.connect(`${process.env.MONGO_URI}`);
 app.use(express_1.default.json());
 app.use('/api/books', bookRoute_1.default);
 app.get("/", (req, res) => {
